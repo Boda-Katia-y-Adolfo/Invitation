@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Katia & Adolfo | Boda</title>
   
-  <!-- Tipografías elegantes desde Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Tipografías de alta costura / editorial idénticas al estilo Canva (Bodoni Moda, Cormorant Garamond, Montserrat) -->
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   
   <style>
     :root {
-      --bg-olive: #6b7c52; /* Verde olivo / musgo característico de la imagen */
-      --card-bg: #f2f2ef;  /* Fondo beige muy claro / blanco roto */
-      --text-dark: #2a2a2a;
-      --text-gold: #c5a059;
+      --bg-olive: #687950;  /* Verde olivo profundo de la invitación original */
+      --card-bg: #f5f5f0;   /* Blanco marfil / beige claro de las tarjetas */
+      --text-dark: #222222;
+      --text-muted: #555555;
       --text-light: #ffffff;
-      --border-color: #dcdcd6;
+      --border-line: #dcdcd4;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -26,36 +26,37 @@
       color: var(--text-dark);
       text-align: center;
       line-height: 1.6;
-      padding-bottom: 50px;
+      padding-bottom: 60px;
     }
 
     .container {
-      max-width: 520px;
+      max-width: 500px;
       margin: 0 auto;
       padding: 40px 20px;
     }
 
-    /* Encabezado Principal */
+    /* ENCABEZADO Y TÍTULO PRINCIPAL */
     .header {
       color: var(--text-light);
-      margin-bottom: 30px;
+      margin-bottom: 25px;
     }
 
     .header h1 {
-      font-family: 'Cinzel', serif;
-      font-size: 3rem;
+      font-family: 'Bodoni Moda', serif;
+      font-size: 3.4rem;
       font-weight: 400;
-      letter-spacing: 4px;
-      line-height: 1.1;
+      letter-spacing: 5px;
+      line-height: 1.05;
       text-transform: uppercase;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .header .subtitle {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 1.1rem;
-      opacity: 0.9;
+      font-size: 1.3rem;
+      letter-spacing: 1px;
+      opacity: 0.95;
       margin-bottom: 25px;
     }
 
@@ -68,68 +69,80 @@
       line-height: 1.7;
     }
 
-    /* Bloque Fecha Destacada */
+    /* INSIGNIA DE FECHA */
     .date-badge {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 15px;
-      font-family: 'Cinzel', serif;
+      font-family: 'Bodoni Moda', serif;
       font-size: 0.8rem;
       letter-spacing: 2px;
       margin-bottom: 25px;
       border-top: 1px solid rgba(255,255,255,0.4);
       border-bottom: 1px solid rgba(255,255,255,0.4);
-      padding: 8px 15px;
+      padding: 10px 20px;
     }
 
     .date-badge .number {
-      font-size: 2.2rem;
+      font-size: 2.3rem;
       font-weight: 600;
       line-height: 1;
     }
 
+    /* RECUADRO LÍMITE RSVP */
     .rsvp-deadline {
-      font-family: 'Cinzel', serif;
+      font-family: 'Bodoni Moda', serif;
       font-size: 0.85rem;
-      letter-spacing: 2px;
+      letter-spacing: 2.5px;
       text-transform: uppercase;
-      background: rgba(0,0,0,0.15);
+      background: rgba(0,0,0,0.18);
       display: inline-block;
-      padding: 10px 20px;
-      border: 1px solid rgba(255,255,255,0.3);
-      margin-top: 10px;
+      padding: 12px 22px;
+      border: 1px solid rgba(255,255,255,0.35);
+      margin-top: 5px;
     }
 
-    /* Foto Principal / Pareja */
+    /* SALUDO PERSONALIZADO (RSVP) */
+    #greeting-box {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: #fff;
+      margin: 15px 0;
+      display: none;
+    }
+
+    /* FOTO DE PAREJA PRINCIPAL */
     .featured-photo-card {
       background-color: var(--card-bg);
       padding: 12px;
       border-radius: 2px;
       margin: 35px 0 20px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     }
 
     .featured-photo-card img {
       width: 100%;
       height: auto;
-      max-height: 380px;
+      max-height: 420px;
       object-fit: cover;
       display: block;
-      border-radius: 2px;
+      border-radius: 1px;
     }
 
+    /* TÍTULOS DE SECCIÓN */
     .section-title {
-      font-family: 'Cinzel', serif;
+      font-family: 'Bodoni Moda', serif;
       font-size: 1.6rem;
       color: var(--text-light);
-      letter-spacing: 3px;
+      letter-spacing: 4px;
       text-transform: uppercase;
-      margin: 35px 0 25px;
+      margin: 40px 0 25px;
       font-weight: 400;
     }
 
-    /* Tarjetas Blancas / Beige */
+    /* TARJETAS CONTENEDORAS */
     .card {
       background-color: var(--card-bg);
       border-radius: 2px;
@@ -140,61 +153,63 @@
 
     .card-img {
       width: 100%;
-      max-height: 220px;
+      max-height: 230px;
       object-fit: cover;
-      border-radius: 2px;
+      border-radius: 1px;
       margin-bottom: 20px;
     }
 
     .card h3 {
-      font-family: 'Cinzel', serif;
+      font-family: 'Bodoni Moda', serif;
       font-size: 1.8rem;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
       font-weight: 500;
       text-transform: uppercase;
-      margin-bottom: 5px;
-      color: #1a1a1a;
+      margin-bottom: 2px;
+      color: #111;
     }
 
     .card .sub-h3 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 1rem;
-      color: #666;
-      margin-bottom: 15px;
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
     }
 
     .card .location-name {
       font-weight: 600;
       font-size: 0.9rem;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
+      color: #222;
     }
 
     .card .address {
       font-size: 0.8rem;
-      color: #666;
-      margin-bottom: 15px;
-      line-height: 1.4;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      line-height: 1.5;
     }
 
     .card .time {
-      font-family: 'Cinzel', serif;
-      font-size: 1.3rem;
+      font-family: 'Bodoni Moda', serif;
+      font-size: 1.4rem;
       font-weight: 600;
-      margin: 15px 0 20px;
-      letter-spacing: 1px;
+      margin: 15px 0 22px;
+      letter-spacing: 1.5px;
     }
 
+    /* BOTONES VER UBICACIÓN */
     .btn-link {
       display: inline-block;
-      padding: 8px 20px;
+      padding: 10px 24px;
       font-size: 0.75rem;
-      letter-spacing: 2px;
+      letter-spacing: 2.5px;
       text-transform: uppercase;
       color: var(--text-dark);
-      border: 1px solid #888;
+      border: 1px solid #777;
       text-decoration: none;
-      transition: all 0.3s;
+      transition: all 0.3s ease;
     }
 
     .btn-link:hover {
@@ -202,7 +217,7 @@
       color: #fff;
     }
 
-    /* Tabla / Itinerario */
+    /* TABLA ITINERARIO */
     .itinerary-list {
       width: 100%;
       border-collapse: collapse;
@@ -210,7 +225,7 @@
     }
 
     .itinerary-list tr {
-      border-bottom: 1px solid #e0e0d8;
+      border-bottom: 1px solid var(--border-line);
     }
 
     .itinerary-list tr:last-child {
@@ -223,11 +238,11 @@
     }
 
     .itinerary-list .time-col {
-      font-family: 'Cinzel', serif;
+      font-family: 'Bodoni Moda', serif;
       font-weight: 600;
       text-align: left;
       width: 35%;
-      color: #444;
+      color: #333;
     }
 
     .itinerary-list .event-col {
@@ -235,11 +250,11 @@
       color: #555;
     }
 
-    /* Dress Code */
+    /* DRESS CODE */
     .dress-code-title {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       margin-bottom: 20px;
     }
 
@@ -249,29 +264,29 @@
       gap: 15px;
       margin-bottom: 20px;
       padding-bottom: 20px;
-      border-bottom: 1px solid #e0e0d8;
+      border-bottom: 1px solid var(--border-line);
     }
 
     .dress-code-item h4 {
-      font-family: 'Cinzel', serif;
-      font-size: 0.8rem;
-      letter-spacing: 1.5px;
+      font-family: 'Bodoni Moda', serif;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
       margin-bottom: 5px;
     }
 
     .dress-code-item p {
       font-size: 0.75rem;
-      color: #666;
+      color: var(--text-muted);
     }
 
     .note-text {
       font-size: 0.75rem;
-      color: #666;
-      line-height: 1.5;
+      color: var(--text-muted);
+      line-height: 1.6;
       margin-top: 10px;
     }
 
-    /* Información Importante Grid */
+    /* INFORMACIÓN IMPORTANTE */
     .info-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -280,35 +295,40 @@
     }
 
     .info-box h4 {
-      font-family: 'Cinzel', serif;
+      font-family: 'Bodoni Moda', serif;
       font-size: 0.85rem;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
       margin-bottom: 10px;
     }
 
     .info-box p {
       font-size: 0.75rem;
-      color: #666;
+      color: var(--text-muted);
       line-height: 1.5;
     }
 
-    /* Sugerencia de Regalos */
+    /* MESA DE REGALOS */
     .gift-btn {
       display: inline-block;
-      background: #7a8b61;
+      background: var(--bg-olive);
       color: #fff;
-      padding: 12px 30px;
-      font-family: 'Cinzel', serif;
+      padding: 12px 32px;
+      font-family: 'Bodoni Moda', serif;
       font-size: 0.85rem;
       letter-spacing: 2px;
       text-decoration: none;
       margin-top: 15px;
+      transition: background 0.3s;
     }
 
-    /* Iframe de Tally integrando hidden fields */
+    .gift-btn:hover {
+      background: #546340;
+    }
+
+    /* IFRAME DE TALLY */
     iframe {
       width: 100%;
-      min-height: 500px;
+      min-height: 520px;
       border: none;
       margin-top: 10px;
     }
@@ -331,17 +351,16 @@
         <span>NOVIEMBRE</span>
       </div>
 
-      <div id="greeting-box" style="margin-bottom: 15px; font-weight: 500; font-size: 1.1rem; display: none;"></div>
+      <div id="greeting-box"></div>
 
       <div>
         <div class="rsvp-deadline">FAVOR DE CONFIRMAR TU ASISTENCIA ANTES DEL 01 DE OCTUBRE DEL 2026</div>
       </div>
     </header>
 
-    <!-- FOTO DESTACADA ENTRE LA CONFIRMACIÓN Y LOS DETALLES -->
+    <!-- FOTO DESTACADA ENTRE CONFIRMACIÓN Y DETALLES -->
     <div class="featured-photo-card">
-      <!-- Reemplaza la URL de abajo por la ruta o enlace de tu foto con tu pareja -->
-      <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Katia y Adolfo">
+      <img src="pareja.jpg" alt="Katia y Adolfo" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80';">
     </div>
 
     <!-- TÍTULO DE SECCIÓN -->
@@ -349,24 +368,24 @@
 
     <!-- CEREMONIA RELIGIOSA -->
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1548625361-188b48877508?auto=format&fit=crop&w=800&q=80" alt="Ceremonia Religiosa" class="card-img">
+      <img src="iglesia.jpg" alt="Ceremonia Religiosa" class="card-img" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1548625361-188b48877508?auto=format&fit=crop&w=800&q=80';">
       <h3>CEREMONIA</h3>
       <p class="sub-h3">Religiosa</p>
       <p class="location-name">Parroquia de La Esperanza de María en la Resurrección del Señor</p>
       <p class="address">C. Alborada 430, Parques del Pedregal, CDMX.</p>
       <div class="time">2:00 PM</div>
-      <a href="https://maps.google.com" target="_blank" class="btn-link">Ver ubicación</a>
+      <a href="https://maps.app.goo.gl/C7goJnLhuwHHAvJQA?g_st=ic" target="_blank" rel="noopener noreferrer" class="btn-link">Ver ubicación</a>
     </div>
 
     <!-- FIESTA Y BANQUETE -->
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80" alt="Fiesta y Banquete" class="card-img">
+      <img src="jardin.jpg" alt="Fiesta y Banquete" class="card-img" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80';">
       <h3>FIESTA &</h3>
       <p class="sub-h3">Banquete</p>
       <p class="location-name">Casa Habitación Legionarios de Cristo</p>
       <p class="address">Ignacio Allende 112, Tlalpan Centro I, CDMX.</p>
       <div class="time">3:30 PM</div>
-      <a href="https://maps.google.com" target="_blank" class="btn-link">Ver ubicación</a>
+      <a href="https://maps.app.goo.gl/C7goJnLhuwHHAvJQA?g_st=ic" target="_blank" rel="noopener noreferrer" class="btn-link">Ver ubicación</a>
     </div>
 
     <!-- ITINERARIO -->
@@ -436,8 +455,8 @@
     <div class="card">
       <h3>SUGERENCIA DE REGALOS</h3>
       <p class="note-text" style="margin: 15px 0;">SU PRESENCIA ES LO MÁS IMPORTANTE, PERO SI QUIEREN TENER UN DETALLE CON NOSOTROS, LES DEJAMOS ALGUNAS OPCIONES:</p>
-      <a href="#" target="_blank" class="gift-btn">LIVERPOOL</a>
-      <p class="note-text" style="margin-top: 10px; font-size: 0.7rem;">Número de evento: 12345678</p>
+      <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/52030197" target="_blank" rel="noopener noreferrer" class="gift-btn">LIVERPOOL</a>
+      <p class="note-text" style="margin-top: 12px; font-size: 0.75rem;">Número de evento: 52030197</p>
     </div>
 
     <!-- FORMULARIO TALLY EMBEDDED CON HIDDEN FIELDS -->
@@ -451,19 +470,19 @@
 
   <script>
     // 1. CONFIGURACIÓN DE TALLY Y PARÁMETROS DE LA URL
-    const TALLY_ID = "TU_FORMULARIO_ID"; // Sustituye por tu ID real de Tally
+    const TALLY_ID = "TU_FORMULARIO_ID"; // Sustituye por tu ID real de Tally (ej. wL9kPx)
 
     const urlParams = new URLSearchParams(window.location.search);
-    const guestName = urlParams.get('nombre');
+    const guestName = urlParams.get('n') || urlParams.get('nombre');
 
-    // Personalización del saludo si viene el parámetro ?nombre=Pedro
+    // Saludo personalizado si viene el parámetro ?n=Jessica Saucedo
     if (guestName) {
       const greetingBox = document.getElementById('greeting-box');
       greetingBox.innerText = `¡Hola, ${guestName}!`;
       greetingBox.style.display = 'block';
     }
 
-    // Pasar automáticamente todos los hidden fields al iframe de Tally
+    // Transmitir todos los hidden fields al iframe de Tally
     const tallyIframe = document.getElementById('tally-iframe');
     tallyIframe.src = `https://tally.so/embed/${TALLY_ID}?${urlParams.toString()}&embed=1`;
   </script>
