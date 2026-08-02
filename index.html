@@ -187,6 +187,31 @@
       margin-bottom: 20px;
     }
 
+    /* TÍTULOS COMBINADOS EN DOS LÍNEAS */
+    .card h3.two-line-title {
+      margin-bottom: 15px;
+      line-height: 0.95;
+      color: #111;
+    }
+
+    .card h3.two-line-title .line-1 {
+      display: block;
+      font-family: 'NewIcon', serif;
+      font-size: 2.2rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .card h3.two-line-title .line-2 {
+      display: block;
+      font-family: 'Sloop Script', 'Cormorant Garamond', cursive;
+      font-size: 2.2rem;
+      font-weight: normal;
+      letter-spacing: 1px;
+      margin-top: -2px;
+    }
+
     /* TÍTULOS DE TARJETAS CON SLOOP SCRIPT */
     .card h3.script-title {
       font-family: 'Sloop Script', 'Cormorant Garamond', cursive;
@@ -198,7 +223,7 @@
       line-height: 1.1;
     }
 
-    /* TÍTULOS DE TARJETAS CON NEW ICON (AUMENTADO DE TAMAÑO Y EN NEGRITAS) */
+    /* TÍTULOS DE TARJETAS CON NEW ICON */
     .card h3.newicon-title {
       font-family: 'NewIcon', serif;
       font-size: 2.2rem;
@@ -463,7 +488,10 @@
     <!-- CEREMONIA RELIGIOSA -->
     <div class="card">
       <img src="https://github.com/Boda-Katia-y-Adolfo/Invitation/blob/main/iglesia.PNG?raw=true" alt="Ceremonia Religiosa" class="card-img" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1548625361-188b48877508?auto=format&fit=crop&w=800&q=80';">
-      <h3 class="script-title">Ceremonia Religiosa</h3>
+      <h3 class="two-line-title">
+        <span class="line-1">CEREMONIA</span>
+        <span class="line-2">Religiosa</span>
+      </h3>
       <p class="location-name">Parroquia de La Esperanza de María en la Resurrección del Señor</p>
       <p class="address">C. Alborada 430, Parques del Pedregal, CDMX.</p>
       <div class="time">2:00 PM</div>
@@ -473,7 +501,10 @@
     <!-- FIESTA Y BANQUETE -->
     <div class="card">
       <img src="https://github.com/Boda-Katia-y-Adolfo/Invitation/blob/main/jardin.PNG?raw=true" alt="Fiesta y Banquete" class="card-img" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80';">
-      <h3 class="script-title">Fiesta & Banquete</h3>
+      <h3 class="two-line-title">
+        <span class="line-1">FIESTA &</span>
+        <span class="line-2">Banquete</span>
+      </h3>
       <p class="location-name">Casa Habitación Legionarios de Cristo</p>
       <p class="address">Ignacio Allende 112, Tlalpan Centro I, CDMX.</p>
       <div class="time">3:30 PM</div>
