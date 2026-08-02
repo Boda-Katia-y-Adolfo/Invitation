@@ -4,45 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Katia & Adolfo | Boda</title>
-  <style>
-  @font-face {
-  font-family: "NewIcon";
-  src:url("https://github.com/Boda-Katia-y-Adolfo/Invitation/blob/main/NewIcon") format ("woff")
-  font-weight:normal;
-  font-style: normal;
-  font display: swap; 
-  }
   
-  <!-- Tipografías de alta costura / editorial idénticas al estilo Canva (Bodoni Moda, Cormorant Garamond, Montserrat) -->
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Tipografías de Google (Montserrat, Bodoni Moda, Cormorant Garamond) -->
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  
-  
   <style>
+    /* DECLARACIÓN DE FUENTES LOCALES DESDE TU REPOSITORIO GITHUB */
+    @font-face {
+      font-family: 'NewIcon';
+      src: url('fonts/NewIcon.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Sloop Script';
+      src: url('fonts/SloopScriptMediumOne.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
     :root {
-      --bg-olive: #687950;  /* Verde olivo profundo de la invitación original */
-      --card-bg: #f5f5f0;   /* Blanco marfil / beige claro de las tarjetas */
+      --bg-olive: #687950;  /* Verde olivo profundo */
+      --card-bg: #f5f5f0;   /* Blanco marfil / beige claro */
       --text-dark: #222222;
       --text-muted: #555555;
       --text-light: #ffffff;
       --border-line: #dcdcd4;
     }
-    
-  /* Tamaño por defecto (computadoras / laptops) */
-.btn-location {
-  font-size: 1.1rem; /* 17.6px aproximadamente */
-  padding: 12px 28px;
-}
 
-/* Regla exclusiva para celulares (pantallas de 600px o menos) */
-@media (max-width: 600px) {
-  .btn-location {
-    font-size: 0.9rem; /* Se reduce un poco en móviles para que no se desborde */
-    padding: 10px 20px;
-  }
-}
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+    }
 
     body {
       font-family: 'Montserrat', sans-serif;
@@ -85,6 +82,7 @@
     }
 
     .header .intro-text {
+      font-family: 'Montserrat', sans-serif;
       font-size: 0.85rem;
       font-weight: 300;
       max-width: 380px;
@@ -124,7 +122,7 @@
       display: inline-block;
       padding: 12px 22px;
       border: 1px solid rgba(255,255,255,0.35);
-      margin-top: 5px;
+      margin-top: 15px;
     }
 
     /* SALUDO PERSONALIZADO (RSVP) */
@@ -137,85 +135,51 @@
       display: none;
     }
 
-    /* FOTO DE PAREJA PRINCIPAL */
-    .featured-photo-card {
-      background-color: var(--card-bg);
-      padding: 12px;
-      border-radius: 2px;
-      margin: 35px 0 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    }
-
-    .featured-photo-card img {
-      width: 100%;
-      height: auto;
-      max-height: 420px;
-      object-fit: cover;
-      display: block;
-      border-radius: 1px;
-    }
-    
-    
-
-    /* TÍTULOS DE SECCIÓN */
+    /* TÍTULOS DE SECCIÓN EN NEWICON */
     .section-title {
-      font-family: 'Bodoni', serif;
-      font-size: 1.6rem;
+      font-family: 'NewIcon', serif;
+      font-size: 2rem;
       color: var(--text-light);
-      letter-spacing: 1px;
+      letter-spacing: 3px;
       text-transform: uppercase;
       margin: 40px 0 25px;
       font-weight: 400;
     }
 
-    /* TARJETAS CONTENEDORAS */
+    /* TARJETAS CONTENEDORAS CENTRADAS */
     .card {
       background-color: var(--card-bg);
       border-radius: 2px;
-      padding: 40px 25px;
+      padding: 35px 25px;
       margin-bottom: 30px;
-      margin-left: auto;
-      margin-right: auto;
+      margin-left: auto !important;
+      margin-right: auto !important;
       box-shadow: 0 8px 25px rgba(0,0,0,0.12);
       max-width: 420px;
-      width:90%
+      width: 90%;
     }
 
     .card-img {
-      width: 80%;
+      width: 100%;
       max-height: 230px;
       object-fit: cover;
       border-radius: 1px;
       margin-bottom: 20px;
     }
-    
-    .card-log {
-      width: 20%;
-      max-height: 20px;
-      object-fit: cover;
-      border-radius: 1px;
-      margin-bottom: 20px;
-    }
 
+    /* TÍTULOS DE LAS TARJETAS EN SLOOP SCRIPT */
     .card h3 {
-      font-family: 'Bodoni Moda', serif;
-      font-size: 1.8rem;
-      letter-spacing: 3px;
-      font-weight: 500;
-      text-transform: uppercase;
-      margin-bottom: 2px;
+      font-family: 'Sloop Script', 'Cormorant Garamond', cursive;
+      font-size: 2.4rem;
+      letter-spacing: 1px;
+      font-weight: normal;
+      margin-bottom: 10px;
       color: #111;
-    }
-
-    .card .sub-h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 1.15rem;
-      color: var(--text-muted);
-      margin-bottom: 18px;
+      line-height: 1.1;
     }
 
     .card .location-name {
+      font-family: 'Montserrat', sans-serif;
       font-weight: 600;
       font-size: 0.9rem;
       margin-bottom: 6px;
@@ -223,6 +187,7 @@
     }
 
     .card .address {
+      font-family: 'Montserrat', sans-serif;
       font-size: 0.8rem;
       color: var(--text-muted);
       margin-bottom: 18px;
@@ -230,24 +195,25 @@
     }
 
     .card .time {
-      font-family: 'Bodoni', serif;
+      font-family: 'Bodoni Moda', serif;
       font-size: 1.4rem;
       font-weight: 600;
       margin: 15px 0 22px;
       letter-spacing: 1.5px;
     }
 
-    /* BOTONES VER UBICACIÓN */
+    /* BOTONES */
     .btn-link {
       display: inline-block;
       padding: 10px 24px;
-      font-size: 0.75rem;
-      letter-spacing: 2.5px;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--text-dark);
       border: 1px solid #777;
       text-decoration: none;
       transition: all 0.3s ease;
+      background-color: #f9f8f6;
     }
 
     .btn-link:hover {
@@ -255,9 +221,21 @@
       color: #fff;
     }
 
+    .btn-location {
+      font-size: 1.1rem;
+      padding: 12px 28px;
+    }
+
+    @media (max-width: 600px) {
+      .btn-location {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+      }
+    }
+
     /* TABLA ITINERARIO */
     .itinerary-list {
-      width: 80%;
+      width: 100%;
       border-collapse: collapse;
       margin-top: 10px;
     }
@@ -272,11 +250,11 @@
 
     .itinerary-list td {
       padding: 12px 5px;
-      font-size: 1rem;
+      font-size: 0.95rem;
     }
 
     .itinerary-list .time-col {
-      font-family: 'Bodoni', serif;
+      font-family: 'Bodoni Moda', serif;
       font-weight: 600;
       text-align: left;
       width: 35%;
@@ -284,6 +262,7 @@
     }
 
     .itinerary-list .event-col {
+      font-family: 'Montserrat', sans-serif;
       text-align: right;
       color: #555;
     }
@@ -313,11 +292,13 @@
     }
 
     .dress-code-item p {
+      font-family: 'Montserrat', sans-serif;
       font-size: 0.75rem;
       color: var(--text-muted);
     }
 
     .note-text {
+      font-family: 'Montserrat', sans-serif;
       font-size: 0.75rem;
       color: var(--text-muted);
       line-height: 1.6;
@@ -340,6 +321,7 @@
     }
 
     .info-box p {
+      font-family: 'Montserrat', sans-serif;
       font-size: 0.75rem;
       color: var(--text-muted);
       line-height: 1.5;
@@ -374,55 +356,39 @@
 </head>
 <body>
 
-    
   <div class="container">
-        </div>
-            </div>
-                </div>
-                ⁠<div style="height: 50px;"></div>⁠
 
     <!-- ENCABEZADO Y PRESENTACIÓN -->
     <header class="header">
       <h1>Katia &<br>Adolfo</h1>
       <p class="subtitle">are getting married</p>
-          </div>
-              </div>
-                  </div>
       
-         ⁠<div style="height: 30px;"></div>⁠
-                  
       <p class="intro-text">Con gran ilusión y alegría, tenemos el honor de invitarles a celebrar nuestro matrimonio.</p>
-          </div>
-          
+      
       <div class="date-badge">
         <span>SÁBADO</span>
         <span class="number">28</span>
         <span>NOVIEMBRE</span>
       </div>
-   ⁠<div style="height: 50px;"></div>⁠
-  
+
       <div id="greeting-box"></div>
 
-   ⁠<div style="height: 10px;"></div>⁠
-   
-<!-- Botón estilo "Ver Ubicación" -->
- <a href="#confirmacion" target="_blank" rel="noopener noreferrer" class="btn-link" style="background-color: #f9f8f6;">Confirmar asistencia</a>
-    </div>
-   ⁠<div style="height: 10px;"></div>⁠
+      <div style="margin-top: 20px; margin-bottom: 15px;">
+        <a href="#confirmacion" class="btn-link btn-location">Confirmar asistencia</a>
+      </div>
+
       <div>
         <div class="rsvp-deadline">FAVOR DE CONFIRMAR TU ASISTENCIA ANTES DEL 01 DE OCTUBRE DEL 2026</div>
       </div>
     </header>
-    
-       ⁠<div style="height: 50px;"></div>⁠
 
-    <!-- TÍTULO DE SECCIÓN -->
+    <!-- DETALLES DEL EVENTO -->
     <h2 class="section-title">DETALLES DEL EVENTO</h2>
 
     <!-- CEREMONIA RELIGIOSA -->
     <div class="card">
       <img src="https://github.com/Boda-Katia-y-Adolfo/Invitation/blob/main/iglesia.PNG?raw=true" alt="Ceremonia Religiosa" class="card-img" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1548625361-188b48877508?auto=format&fit=crop&w=800&q=80';">
-      <h3>CEREMONIA RELIGIOSA</h3>
+      <h3>Ceremonia Religiosa</h3>
       <p class="location-name">Parroquia de La Esperanza de María en la Resurrección del Señor</p>
       <p class="address">C. Alborada 430, Parques del Pedregal, CDMX.</p>
       <div class="time">2:00 PM</div>
@@ -432,7 +398,7 @@
     <!-- FIESTA Y BANQUETE -->
     <div class="card">
       <img src="https://github.com/Boda-Katia-y-Adolfo/Invitation/blob/main/jardin.PNG?raw=true" alt="Fiesta y Banquete" class="card-img" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80';">
-      <h3>FIESTA & BANQUETE </h3>
+      <h3>Fiesta & Banquete</h3>
       <p class="location-name">Casa Habitación Legionarios de Cristo</p>
       <p class="address">Ignacio Allende 112, Tlalpan Centro I, CDMX.</p>
       <div class="time">3:30 PM</div>
@@ -441,7 +407,7 @@
 
     <!-- ITINERARIO -->
     <div class="card">
-      <h3 style="margin-bottom: 20px;">ITINERARIO</h3>
+      <h3>Itinerario</h3>
       <table class="itinerary-list">
         <tr>
           <td class="time-col">2:00 PM</td>
@@ -468,7 +434,7 @@
 
     <!-- DRESS CODE -->
     <div class="card">
-      <h3>DRESS CODE</h3>
+      <h3>Dress Code</h3>
       <p class="dress-code-title">Formal</p>
       
       <div class="dress-code-grid">
@@ -482,42 +448,54 @@
         </div>
       </div>
 
-      <p class="note-text">El color VERDE OLIVA está reservado para el cortejo. </p>
-      <p class="note-text" style="margin-top: 8px;">AVISO: El evento será totalmente en jardín, Les sugerimos tenerlo en cuenta para la elección de calzado.</p>
+      <p class="note-text">El color VERDE OLIVA está reservado para el cortejo.</p>
+      <p class="note-text" style="margin-top: 8px;">AVISO: El evento será totalmente en jardín. Les sugerimos tenerlo en cuenta para la elección de calzado.</p>
+    </div>
+
+    <!-- INFORMACIÓN IMPORTANTE -->
+    <h2 class="section-title">INFORMACIÓN IMPORTANTE</h2>
+    <div class="card">
+      <div class="info-grid">
+        <div class="info-box">
+          <h4>NO NIÑOS</h4>
+          <p>Adoramos a los pequeños de la familia y amigos, sin embargo, este evento está destinado para adultos.</p>
+        </div>
+        <div class="info-box">
+          <h4>ESTACIONAMIENTO</h4>
+          <p>Contamos con estacionamiento en ambas ubicaciones, así como servicio de valet parking exclusivamente en la recepción.<br><br>Les sugerimos tomar sus precauciones, ya que el cupo en ambas ubicaciones es limitado.</p>
+        </div>
+      </div>
     </div>
 
     <!-- SUGERENCIA DE REGALOS -->
     <div class="card">
-      <h3>SUGERENCIA DE REGALOS</h3>
+      <h3>Sugerencia de Regalos</h3>
       <p class="note-text" style="margin: 15px 0;">Su presencia es lo más importante, pero si quieren tener un detalle con nosotros, les dejamos algunas opciones:</p>
       <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/52030197" target="_blank" rel="noopener noreferrer" class="gift-btn">LIVERPOOL</a>
       <p class="note-text" style="margin-top: 12px; font-size: 0.75rem;">Número de evento: 52030197</p>
     </div>
 
-    <!-- FORMULARIO TALLY EMBEDDED CON HIDDEN FIELDS -->
+    <!-- FORMULARIO TALLY -->
     <div class="card" id="confirmacion">
-      <h3>CONFIRMAR ASISTENCIA</h3>
+      <h3>Confirmar Asistencia</h3>
       <p class="note-text" style="margin-bottom: 15px;">Por favor llena los siguientes datos para reservar tus lugares:</p>
       <iframe id="tally-iframe" title="RSVP Katia y Adolfo"></iframe>
     </div>
 
-  </div>
+  </div> <!-- Cierre de .container -->
 
   <script>
-    // 1. CONFIGURACIÓN DE TALLY Y PARÁMETROS DE LA URL
-    const TALLY_ID = "xX1Wzy"; // Sustituye por tu ID real de Tally (ej. wL9kPx)
+    const TALLY_ID = "xX1Wzy"; 
 
     const urlParams = new URLSearchParams(window.location.search);
     const guestName = urlParams.get('n') || urlParams.get('nombre');
 
-    // Saludo personalizado si viene el parámetro ?n=Jessica Saucedo
     if (guestName) {
       const greetingBox = document.getElementById('greeting-box');
       greetingBox.innerText = `¡Hola, ${guestName}!`;
       greetingBox.style.display = 'block';
     }
 
-    // Transmitir todos los hidden fields al iframe de Tally
     const tallyIframe = document.getElementById('tally-iframe');
     tallyIframe.src = `https://tally.so/embed/${TALLY_ID}?${urlParams.toString()}&embed=1`;
   </script>
@@ -526,19 +504,4 @@
   <script async src="https://tally.so/widgets/embed.js"></script>
 </body>
 </html>
-
- <!-- INFORMACIÓN IMPORTANTE -->
-<h2 class="section-title">INFORMACIÓN IMPORTANTE</h2>
-    <div class="card">
-      <div class="info-grid">
-        <div class="info-box">
-          <h4>NO NIÑOS</h4>
-          <p>Adoramos a los pequeños de la familia y amigos, sin embargo, este evento está destinado para adultos.
-        </div>
-        <div class="info-box">
-          <h4>ESTACIONAMIENTO</h4>
-          <p>Contamos con estacionamiento en ambas ubicaciones, así como servicio de valet parking exclusivamente en la recepción.<br><br>Les sugerimos tomar sus precauciones, ya que el cupo en ambas ubicaciones es limitado.</p>
-        </div>
-      </div>
-    </div>
 
