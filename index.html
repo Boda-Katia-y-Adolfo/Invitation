@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Katia & Adolfo | Boda</title>
   
-  <!-- Tipografías de Google (Montserrat, Bodoni Moda, Cormorant Garamond) -->
+  <!-- Tipografías de Google -->
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* DECLARACIÓN DE FUENTES LOCALES DESDE TU REPOSITORIO GITHUB */
+    /* FUENTES LOCALES */
     @font-face {
       font-family: 'NewIcon';
       src: url('fonts/NewIcon.ttf') format('truetype');
@@ -27,12 +27,12 @@
     }
 
     :root {
-      --bg-olive: #687950;  /* Verde olivo profundo */
-      --card-bg: #e9e9e9;   /* Blanco marfil / beige claro */
+      --bg-olive: #687950;
+      --card-bg: #ffffff;
       --text-dark: #222222;
       --text-muted: #555555;
       --text-light: #ffffff;
-      --border-line: #dcdcd4;
+      --border-line: #e0e0e0;
     }
 
     * { 
@@ -41,128 +41,132 @@
       padding: 0; 
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Montserrat', sans-serif;
       background-color: var(--bg-olive);
       color: var(--text-dark);
       text-align: center;
       line-height: 1.6;
-      padding-bottom: 80px;
+      overflow-x: hidden;
     }
 
-    .container {
-      max-width: 500px;
+    /* ESTILO ESTILO CANVA WEB: CONTENEDOR FLUIDO Y ANCHO */
+    .page-wrapper {
+      width: 100%;
+      max-width: 600px; /* Unificado con el ancho nativo de presentación web de Canva en móviles/laptops */
       margin: 0 auto;
-      padding: 50px 20px;
+      padding: 20px 15px 60px;
     }
 
-    /* ENCABEZADO Y TÍTULO PRINCIPAL */
-    .header {
+    /* HERO / PORTADA */
+    .hero-section {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       color: var(--text-light);
-      margin-bottom: 50px;
+      padding: 40px 20px;
     }
 
-    .header h1 {
+    .hero-section h1 {
       font-family: 'NewIcon', serif;
-      font-size: 4.2rem;
+      font-size: 4.5rem;
       font-weight: 400;
-      letter-spacing: 5px;
-      line-height: 1.05;
+      letter-spacing: 6px;
+      line-height: 1;
       text-transform: uppercase;
-      margin-bottom: 12px;
+      margin-bottom: 15px;
     }
 
-    .header .subtitle {
+    .hero-section .subtitle {
       font-family: 'Sloop Script', serif;
       font-style: italic;
-      font-size: 1.3rem;
+      font-size: 1.8rem;
       letter-spacing: 1px;
-      opacity: 0.95;
-      margin-bottom: 25px;
+      margin-bottom: 30px;
     }
 
-    .header .intro-text {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.85rem;
+    .hero-section .intro-text {
+      font-size: 0.9rem;
       font-weight: 300;
-      max-width: 380px;
-      margin: 0 auto 25px;
-      letter-spacing: 0.5px;
+      max-width: 400px;
+      margin: 0 auto 30px;
       line-height: 1.7;
     }
 
-    /* INSIGNIA DE FECHA */
+    /* INSIGNIA DE FECHA ESTILO CANVA */
     .date-badge {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 15px;
       font-family: 'Bodoni Moda', serif;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       letter-spacing: 2px;
-      margin-bottom: 25px;
-      border-top: 1px solid rgba(255,255,255,0.4);
-      border-bottom: 1px solid rgba(255,255,255,0.4);
-      padding: 10px 20px;
+      margin-bottom: 30px;
+      border-top: 1px solid rgba(255,255,255,0.5);
+      border-bottom: 1px solid rgba(255,255,255,0.5);
+      padding: 12px 25px;
     }
 
     .date-badge .number {
-      font-size: 2.3rem;
+      font-size: 2.5rem;
       font-weight: 600;
       line-height: 1;
     }
 
-    /* RECUADRO LÍMITE RSVP */
     .rsvp-deadline {
       font-family: 'Bodoni Moda', serif;
-      font-size: 0.85rem;
-      letter-spacing: 2.5px;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      background: rgba(0,0,0,0.18);
+      background: rgba(0,0,0,0.2);
       display: inline-block;
-      padding: 12px 22px;
-      border: 1px solid rgba(255,255,255,0.35);
-      margin-top: 15px;
+      padding: 12px 20px;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 4px;
+      margin-top: 10px;
     }
 
-    /* SALUDO PERSONALIZADO (RSVP) */
     #greeting-box {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       font-style: italic;
       color: #fff;
       margin: 15px 0;
       display: none;
     }
 
-    /* TÍTULOS DE SECCIÓN PRINCIPALES */
+    /* TÍTULOS DE SECCIÓN CON MAYOR SEPARACIÓN */
     .section-title {
       font-family: 'NewIcon', serif;
-      font-size: 2rem;
+      font-size: 2.2rem;
       color: var(--text-light);
-      letter-spacing: 3px;
+      letter-spacing: 4px;
       text-transform: uppercase;
-      margin: 60px 0 35px;
+      margin: 70px 0 30px;
       font-weight: 400;
     }
 
-    /* TARJETAS CONTENEDORAS */
+    /* TARJETAS ESTILO LÁMINA CANVA (BORDES REDONDEADOS Y SOMBRA ELEVADA) */
     .card {
       background-color: var(--card-bg);
-      border-radius: 2px;
-      padding: 35px 25px;
-      margin-bottom: 55px;
-      margin-left: auto !important;
-      margin-right: auto !important;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-      max-width: 420px;
-      width: 90%;
+      border-radius: 12px;
+      padding: 40px 30px;
+      margin-bottom: 35px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.18);
       position: relative;
       overflow: hidden;
       z-index: 1;
+      backdrop-filter: blur(5px);
     }
 
-    /* FONDO DEL LOGO EN CADA TARJETA CON 4% DE OPACIDAD */
+    /* MARCA DE AGUA LIGERA */
     .card::before {
       content: "";
       position: absolute;
@@ -174,30 +178,29 @@
       background-repeat: no-repeat;
       background-position: center;
       background-size: contain;
-      opacity: 0.04;
+      opacity: 0.03;
       z-index: -1;
       pointer-events: none;
     }
 
     .card-img {
       width: 100%;
-      max-height: 230px;
+      height: 240px;
       object-fit: cover;
-      border-radius: 1px;
-      margin-bottom: 20px;
+      border-radius: 8px;
+      margin-bottom: 25px;
     }
 
-    /* TÍTULOS COMBINADOS EN DOS LÍNEAS */
     .card h3.two-line-title {
       margin-bottom: 15px;
-      line-height: 0.95;
+      line-height: 1;
       color: #111;
     }
 
     .card h3.two-line-title .line-1 {
       display: block;
       font-family: 'NewIcon', serif;
-      font-size: 2.8rem; /* Aumentado */
+      font-size: 2.2rem;
       font-weight: bold;
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -205,72 +208,57 @@
 
     .card h3.two-line-title .line-2 {
       display: block;
-      font-family: 'Sloop Script', 'Cormorant Garamond', cursive;
-      font-size: 2.8rem; /* Aumentado */
-      font-weight: normal;
-      letter-spacing: 1px;
-      margin-top: -2px;
-    }
-
-    /* TÍTULOS DE TARJETAS CON SLOOP SCRIPT */
-    .card h3.script-title {
-      font-family: 'Sloop Script', 'Cormorant Garamond', cursive;
+      font-family: 'Sloop Script', cursive;
       font-size: 2.4rem;
-      letter-spacing: 1px;
       font-weight: normal;
-      margin-bottom: 10px;
-      color: #111;
-      line-height: 1.1;
+      margin-top: -5px;
     }
 
-    /* TÍTULOS DE TARJETAS CON NEW ICON */
     .card h3.newicon-title {
       font-family: 'NewIcon', serif;
       font-size: 2.2rem;
       font-weight: bold;
       letter-spacing: 2px;
       text-transform: uppercase;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       color: #111;
-      line-height: 1.2;
     }
 
     .card .location-name {
-      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
       font-weight: 600;
-      font-size: 0.9rem;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       color: #222;
     }
 
     .card .address {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
-      margin-bottom: 18px;
-      line-height: 1.5;
+      margin-bottom: 20px;
     }
 
     .card .time {
       font-family: 'Bodoni Moda', serif;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       font-weight: 600;
-      margin: 15px 0 22px;
+      margin: 15px 0 25px;
       letter-spacing: 1.5px;
     }
 
-    /* BOTONES */
+    /* BOTONES MÁS ESTILIZADOS (CANVA STYLE) */
     .btn-link {
       display: inline-block;
-      padding: 10px 24px;
+      padding: 12px 30px;
       font-size: 0.8rem;
       letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--text-dark);
-      border: 1px solid #777;
+      border: 1px solid #333;
+      border-radius: 30px;
       text-decoration: none;
       transition: all 0.3s ease;
-      background-color: #f9f8f6;
+      background-color: transparent;
+      font-weight: 600;
     }
 
     .btn-link:hover {
@@ -278,26 +266,23 @@
       color: #fff;
     }
 
-    .btn-location {
-      font-size: 1.1rem;
-      padding: 12px 28px;
+    .btn-hero {
+      background: #ffffff;
+      color: var(--text-dark);
+      border: none;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
     }
 
-    @media (max-width: 600px) {
-      .header h1 {
-        font-size: 3.5rem;
-      }
-      .btn-location {
-        font-size: 0.9rem;
-        padding: 10px 20px;
-      }
+    .btn-hero:hover {
+      background: #f0f0f0;
+      color: var(--text-dark);
     }
 
-    /* TABLA ITINERARIO */
+    /* ITINERARIO */
     .itinerary-list {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 10px;
+      margin-top: 15px;
     }
 
     .itinerary-list tr {
@@ -309,7 +294,7 @@
     }
 
     .itinerary-list td {
-      padding: 12px 5px;
+      padding: 15px 5px;
       font-size: 0.95rem;
     }
 
@@ -322,18 +307,15 @@
     }
 
     .itinerary-list .event-col {
-      font-family: 'Montserrat', sans-serif;
       text-align: right;
       color: #555;
     }
 
-    /* DRESS CODE ESTILOS */
+    /* DRESS CODE */
     .dress-code-title {
       font-family: 'Sloop Script', cursive;
-      font-size: 1.8rem; /* Reducido de 2.8rem a 1.8rem */
-      font-weight: normal;
+      font-size: 3rem;
       color: #111;
-      margin-top: -5px;
       margin-bottom: 25px;
       line-height: 1;
     }
@@ -343,7 +325,6 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 25px;
-      padding-bottom: 10px;
     }
 
     .dress-code-col {
@@ -352,88 +333,42 @@
     }
 
     .dress-code-col.left {
-      text-align: center;
-      border-right: 1px solid #777;
-    }
-
-    .dress-code-col.right {
-      text-align: center;
+      border-right: 1px solid var(--border-line);
     }
 
     .dress-code-col h4 {
-      font-family: 'Times New Roman Condensed', 'Times New Roman', serif;
-      font-stretch: condensed;
-      font-size: 1.1rem;
+      font-size: 1rem;
       letter-spacing: 1.5px;
       text-transform: uppercase;
       color: #111;
-      font-weight: bold;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
     .dress-code-col p {
-      font-family: 'Montserrat', sans-serif;
       font-size: 0.8rem;
       letter-spacing: 1px;
-      text-transform: uppercase;
-      color: #222;
+      color: #444;
       font-weight: 500;
     }
 
     .dress-code-note {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.78rem;
-      color: #333;
+      font-size: 0.8rem;
+      color: #444;
       line-height: 1.6;
-      letter-spacing: 0.3px;
       margin-top: 15px;
     }
 
-    .dress-code-note u {
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-
-    .note-text {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-top: 10px;
-    }
-
-    /* INFORMACIÓN IMPORTANTE */
-    .info-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      text-align: center;
-    }
-
-    .info-box h4 {
-      font-family: 'Bodoni Moda', serif;
-      font-size: 0.85rem;
-      letter-spacing: 1.5px;
-      margin-bottom: 10px;
-    }
-
-    .info-box p {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    /* MESA DE REGALOS */
+    /* REGALOS */
     .gift-btn {
       display: inline-block;
       background: var(--bg-olive);
       color: #fff;
-      padding: 12px 32px;
+      padding: 14px 35px;
       font-family: 'Bodoni Moda', serif;
       font-size: 0.85rem;
       letter-spacing: 2px;
       text-decoration: none;
+      border-radius: 30px;
       margin-top: 15px;
       transition: background 0.3s;
     }
@@ -444,22 +379,47 @@
 
     /* IFRAME DE TALLY */
     iframe {
-      width: 110%;
-      min-height: 520px;
+      width: 100%;
+      min-height: 550px;
       border: none;
+      border-radius: 8px;
       margin-top: 10px;
-      transform: scale(0.9);
-      transform-origin: top center;
-      margin-left: -5%;
+    }
+
+    /* INFORMACIÓN IMPORTANTE */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+      text-align: center;
+    }
+
+    .info-box h4 {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 0.9rem;
+      letter-spacing: 1.5px;
+      margin-bottom: 10px;
+    }
+
+    .info-box p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    @media (min-width: 500px) {
+      .info-grid {
+        grid-template-columns: 1fr 1fr;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
+  <div class="page-wrapper">
 
-    <!-- ENCABEZADO Y PRESENTACIÓN -->
-    <header class="header">
+    <!-- ENCABEZADO / HERO -->
+    <header class="hero-section">
       <h1>Katia &<br>Adolfo</h1>
       <p class="subtitle">are getting married</p>
       
@@ -473,13 +433,11 @@
 
       <div id="greeting-box"></div>
 
-      <div style="margin-top: 20px; margin-bottom: 15px;">
-        <a href="#confirmacion" class="btn-link btn-location">Confirmar asistencia</a>
+      <div style="margin: 20px 0 15px;">
+        <a href="#confirmacion" class="btn-link btn-hero">Confirmar asistencia</a>
       </div>
 
-      <div>
-        <div class="rsvp-deadline">FAVOR DE CONFIRMAR TU ASISTENCIA ANTES DEL 01 DE OCTUBRE DEL 2026</div>
-      </div>
+      <div class="rsvp-deadline">FAVOR DE CONFIRMAR ANTES DEL 01 DE OCTUBRE DEL 2026</div>
     </header>
 
     <!-- DETALLES DEL EVENTO -->
@@ -548,15 +506,14 @@
           <h4>MUJERES</h4>
           <p>VESTIDO LARGO</p>
         </div>
-        <div class="dress-code-col right">
+        <div class="dress-code-col">
           <h4>HOMBRES</h4>
           <p>TRAJE</p>
         </div>
       </div>
 
       <p class="dress-code-note">El color <u>verde oliva</u> está reservado para el cortejo.</p>
-
-      <p class="dress-code-note" style="margin-top: 18px;">
+      <p class="dress-code-note" style="margin-top: 15px;">
         <strong>AVISO:</strong> El evento será totalmente en jardín, les sugerimos tomarlo en cuenta para la elección de calzado.
       </p>
     </div>
@@ -564,15 +521,15 @@
     <!-- SUGERENCIA DE REGALOS -->
     <div class="card">
       <h3 class="newicon-title">Sugerencia de Regalos</h3>
-      <p class="note-text" style="margin: 15px 0;">Su presencia es lo más importante, pero si quieren tener un detalle con nosotros, les dejamos algunas opciones:</p>
+      <p style="font-size:0.8rem; color:var(--text-muted); margin: 15px 0;">Su presencia es lo más importante, pero si quieren tener un detalle con nosotros, les dejamos algunas opciones:</p>
       <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/52030197" target="_blank" rel="noopener noreferrer" class="gift-btn">LIVERPOOL</a>
-      <p class="note-text" style="margin-top: 12px; font-size: 0.75rem;">Número de evento: 52030197</p>
+      <p style="margin-top: 12px; font-size: 0.75rem; color: var(--text-muted);">Número de evento: 52030197</p>
     </div>
 
     <!-- FORMULARIO TALLY (CONFIRMAR ASISTENCIA) -->
     <div class="card" id="confirmacion">
       <h3 class="newicon-title">Confirmar Asistencia</h3>
-      <p class="note-text" style="margin-bottom: 15px;">Por favor llena los siguientes datos para reservar tus lugares:</p>
+      <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom: 15px;">Por favor llena los siguientes datos para reservar tus lugares:</p>
       <iframe id="tally-iframe" title="RSVP Katia y Adolfo"></iframe>
     </div>
 
@@ -591,7 +548,7 @@
       </div>
     </div>
 
-  </div> <!-- Cierre de .container -->
+  </div> <!-- Cierre de .page-wrapper -->
 
   <script>
     const TALLY_ID = "xX1Wzy"; 
@@ -613,3 +570,4 @@
   <script async src="https://tally.so/widgets/embed.js"></script>
 </body>
 </html>
+
