@@ -112,6 +112,7 @@
       border-top: 1px solid rgba(255,255,255,0.5);
       border-bottom: 1px solid rgba(255,255,255,0.5);
       padding: 12px 25px;
+      font-weight: 700;
     }
 
     .date-badge .number {
@@ -384,7 +385,7 @@
       padding: 18px 20px;
       margin: 25px auto 10px;
       max-width: 420px;
-      background-color: transparent;
+      background-color: rgba(255, 255, 255, 0.4);
       text-align: center;
     }
 
@@ -409,12 +410,13 @@
       margin-top: 6px;
     }
 
-    /* IFRAME DE TALLY */
+    /* IFRAME DE TALLY (ALTURA DINÁMICA) */
     iframe {
       width: 100%;
-      min-height: 400px;
+      height: 0; /* Empieza en 0 y el script de Tally ajusta automáticamente */
       border: none;
       margin-top: 10px;
+      overflow: hidden;
     }
 
     /* INFORMACIÓN IMPORTANTE */
@@ -427,13 +429,13 @@
 
     .info-box h4 {
       font-family: 'NewIcon', serif;
-      font-size: 1rem;
+      font-size: 3rem;
       letter-spacing: 1.5px;
       margin-bottom: 10px;
     }
 
     .info-box p {
-      font-size: 1.5em;
+      font-size: 0.8rem;
       color: var(--text-muted);
       line-height: 1.6;
     }
@@ -606,8 +608,8 @@
       <h3 class="newicon-title">Confirmar Asistencia</h3>
       <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom: 15px;">Por favor llena los siguientes datos para reservar tus lugares:</p>
       
-      <!-- IFRAME TALLY -->
-      <iframe id="tally-iframe" data-tally-src="https://tally.so/embed/xX1Wzy?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" title="RSVP Katia y Adolfo" width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+      <!-- IFRAME TALLY DYNAMIC HEIGHT -->
+      <iframe id="tally-iframe" data-tally-src="https://tally.so/embed/xX1Wzy?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" title="RSVP Katia y Adolfo" width="100%" frameborder="0" marginheight="0" marginwidth="0"></iframe>
     </div>
 
     <!-- INFORMACIÓN IMPORTANTE -->
@@ -633,12 +635,9 @@
     // Obtener los parámetros de la URL
     const urlParams = new URLSearchParams(window.location.search);
     
-    // Invitado principal: busca 'n' o 'nombre'
     const guestName = urlParams.get('n') || urlParams.get('nombre');
-    // Acompañante/Pareja: busca 'p' o 'pareja'
     const partnerName = urlParams.get('p') || urlParams.get('pareja');
 
-    // Construir el saludo según los datos recibidos
     let greetingText = "";
 
     if (guestName && partnerName) {
@@ -649,14 +648,13 @@
       greetingText = `¡Hola, ${partnerName}!`;
     }
 
-    // Mostrar el saludo si existe al menos un nombre
     if (greetingText) {
       const greetingBox = document.getElementById('greeting-box');
       greetingBox.innerText = greetingText;
       greetingBox.style.display = 'block';
     }
 
-    // Configurar el iframe de Tally pasando todos los parámetros URL
+    // Configurar iframe y recalcular incrustación de Tally
     const tallyIframe = document.getElementById('tally-iframe');
     const baseUrl = `https://tally.so/embed/${TALLY_ID}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`;
     
@@ -665,9 +663,14 @@
 
     tallyIframe.setAttribute('data-tally-src', finalUrl);
     tallyIframe.src = finalUrl;
+
+    // Recargar los embeds de Tally si la librería ya cargó
+    if (typeof Tally !== 'undefined') {
+      Tally.loadEmbeds();
+    }
   </script>
 
-  <!-- Script Oficial de Tally -->
+  <!-- Script Oficial de Tally que ajusta dinámicamente la altura del iframe -->
   <script async src="https://tally.so/widgets/embed.js" onload="typeof Tally !== 'undefined' && Tally.loadEmbeds();"></script>
 </body>
 </html>
