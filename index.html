@@ -1,4 +1,4 @@
-<!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -410,13 +410,22 @@
       margin-top: 6px;
     }
 
-    /* IFRAME DE TALLY (ALTURA DINÁMICA) */
-    iframe {
+    /* CONTENEDOR E IFRAME DE TALLY (REDUCCIÓN DE ZOOM AL 90%) */
+    .tally-container {
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+    }
+
+    iframe#tally-iframe {
       width: 100%;
       min-height: 300px;
       border: none;
       margin-top: 10px;
       overflow: hidden;
+      transform: scale(0.90);
+      transform-origin: top center;
     }
 
     /* INFORMACIÓN IMPORTANTE */
@@ -501,7 +510,7 @@
       <div style="margin: 20px 0 15px;">
         <a href="#confirmacion" class="btn-link btn-hero">Confirmar asistencia</a>
       </div>
-<div class="spacerchico"></div>
+      <div class="spacerchico"></div>
       <div class="rsvp-deadline">FAVOR DE CONFIRMAR ANTES DEL 01 DE OCTUBRE DEL 2026</div>
     </header>
 
@@ -607,17 +616,19 @@
       <h3 class="newicon-title">Confirmar Asistencia</h3>
       <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom: 15px;">Por favor llena los siguientes datos para reservar tus lugares:</p>
       
-      <!-- IFRAME TALLY DYNAMIC HEIGHT -->
-      <iframe 
-        id="tally-iframe" 
-        src="https://tally.so/embed/xX1Wzy?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-        data-tally-src="https://tally.so/embed/xX1Wzy?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
-        title="RSVP Katia y Adolfo" 
-        width="100%" 
-        frameborder="0" 
-        marginheight="0" 
-        marginwidth="0">
-      </iframe>
+      <!-- CONTENEDOR PARA ESCALA DE ZOOM DEL TALLY -->
+      <div class="tally-container">
+        <iframe 
+          id="tally-iframe" 
+          src="https://tally.so/embed/xX1Wzy?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+          data-tally-src="https://tally.so/embed/xX1Wzy?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
+          title="RSVP Katia y Adolfo" 
+          width="100%" 
+          frameborder="0" 
+          marginheight="0" 
+          marginwidth="0">
+        </iframe>
+      </div>
     </div>
 
     <!-- INFORMACIÓN IMPORTANTE -->
@@ -638,7 +649,71 @@
 
   </div> <!-- Cierre de .page-wrapper -->
 
+  <!-- SCRIPT CON LA LÓGICA DE SALUDO Y MANEJO DEL TALLY -->
   <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const TALLY_ID = "xX1Wzy"; 
+
+      // Obtener parámetros de la URL
+      const urlParams = new URLSearchParams(window.location.search);
+      
+      const guestName = urlParams.get('n') || urlParams.get('nombre');
+      const pParam = urlParams.get('p');
+      const partnerName = urlParams.get('acu') || urlParams.get('pareja');
+
+      let greetingText = "";
+
+      // Lógica de saludo: Si p es exactamente 1, incluye a acu. De lo contrario solo a n.
+      if (guestName) {
+        if (pParam === '1' && partnerName) {
+          greetingText = `¡Hola, ${guestName} y ${partnerName}!`;
+        } else {
+          greetingText = `¡Hola, ${guestName}!`;
+        }
+      }
+
+      // Desplegar el saludo en el header
+      if (greetingText) {
+        const greetingBox = document.getElementById('greeting-box');
+        if (greetingBox) {
+          greetingBox.innerText = greetingText;
+          greetingBox.style.display = 'block';
+        }
+      }
+
+      // Configurar URL del iframe para pasar los parámetros dinámicos a Tally
+      const tallyIframe = document.getElementById('tally-iframe');
+      if (tallyIframe) {
+        const baseUrl = `https://tally.so/embed/${TALLY_ID}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`;
+        const queryString = urlParams.toString();
+        const finalUrl = queryString ? `${baseUrl}&${queryString}` : baseUrl;
+
+        tallyIframe.setAttribute('data-tally-src', finalUrl);
+        tallyIframe.src = finalUrl;
+      }
+
+      // Cargar el script oficial de Tally
+      function loadTallyScript() {
+        if (typeof Tally !== 'undefined') {
+          Tally.loadEmbeds();
+        } else {
+          const script = document.createElement('script');
+          script.src = "https://tally.so/widgets/embed.js";
+          script.async = true;
+          script.onload = () => {
+            if (typeof Tally !== 'undefined') {
+              Tally.loadEmbeds();
+            }
+          };
+          document.body.appendChild(script);
+        }
+      }
+
+      loadTallyScript();
+    });
+  </script>
+</body>
+</html>
     document.addEventListener("DOMContentLoaded", function() {
       const TALLY_ID = "xX1Wzy"; 
 
