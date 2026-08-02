@@ -12,7 +12,7 @@
     /* DECLARACIÓN DE FUENTES LOCALES DESDE TU REPOSITORIO GITHUB */
     @font-face {
       font-family: 'NewIcon';
-      src: url('fonts/NewIcon.tff') format('truetype');
+      src: url('fonts/NewIcon.ttf') format('truetype'); /* Corrección de extensión .ttf */
       font-weight: normal;
       font-style: normal;
       font-display: swap;
@@ -62,7 +62,6 @@
       margin-bottom: 50px;
     }
 
-    /* TAMAÑO DE KATIA & ADOLFO AUMENTADO */
     .header h1 {
       font-family: 'NewIcon', serif;
       font-size: 4.2rem;
@@ -136,7 +135,7 @@
       display: none;
     }
 
-    /* TÍTULOS DE SECCIÓN PRINCIPALES (MÁS ESPACIO ARRIBA Y ABAJO) */
+    /* TÍTULOS DE SECCIÓN PRINCIPALES */
     .section-title {
       font-family: 'NewIcon', serif;
       font-size: 2rem;
@@ -147,7 +146,7 @@
       font-weight: 400;
     }
 
-    /* TARJETAS CONTENEDORAS (MÁS ESPACIO DE SEPARACIÓN ABAJO) */
+    /* TARJETAS CONTENEDORAS */
     .card {
       background-color: var(--card-bg);
       border-radius: 2px;
@@ -188,7 +187,7 @@
       margin-bottom: 20px;
     }
 
-    /* TÍTULOS DE TARJETAS CON SLOOP SCRIPT (CEREMONIA Y FIESTA) */
+    /* TÍTULOS DE TARJETAS CON SLOOP SCRIPT */
     .card h3.script-title {
       font-family: 'Sloop Script', 'Cormorant Garamond', cursive;
       font-size: 2.4rem;
@@ -199,7 +198,7 @@
       line-height: 1.1;
     }
 
-    /* TÍTULOS DE TARJETAS CON NEW ICON (ITINERARIO, DRESS CODE, REGALOS, CONFIRMAR) */
+    /* TÍTULOS DE TARJETAS CON NEW ICON */
     .card h3.newicon-title {
       font-family: 'NewIcon', serif;
       font-size: 1.8rem;
@@ -261,7 +260,7 @@
 
     @media (max-width: 600px) {
       .header h1 {
-        font-size: 3.5rem; /* Ajuste adaptativo para pantallas de celular muy pequeñas */
+        font-size: 3.5rem;
       }
       .btn-location {
         font-size: 0.9rem;
@@ -303,34 +302,74 @@
       color: #555;
     }
 
-    /* DRESS CODE */
+    /* ESTILOS DRESS CODE (ADAPTADOS A LA IMAGEN) */
     .dress-code-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 1.3rem;
-      margin-bottom: 20px;
+      font-family: 'Sloop Script', cursive;
+      font-size: 2.8rem;
+      font-weight: normal;
+      color: #111;
+      margin-top: -5px;
+      margin-bottom: 25px;
+      line-height: 1;
     }
 
-    .dress-code-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-      margin-bottom: 20px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid var(--border-line);
+    .dress-code-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px;
+      padding-bottom: 10px;
     }
 
-    .dress-code-item h4 {
-      font-family: 'New Icon', serif;
-      font-size: 0.85rem;
-      letter-spacing: 2px;
-      margin-bottom: 5px;
+    .dress-code-col {
+      flex: 1;
+      padding: 0 10px;
     }
 
-    .dress-code-item p {
-      font-family: 'Sloop Script', sans-serif;
-      font-size: 0.75rem;
-      color: var(--text-muted);
+    .dress-code-col.left {
+      text-align: center;
+      border-right: 1px solid #777; /* Línea divisoria central */
+    }
+
+    .dress-code-col.right {
+      text-align: center;
+    }
+
+    .dress-code-col h4 {
+      font-family: 'Times New Roman Condensed', 'Times New Roman', serif;
+      font-stretch: condensed;
+      font-size: 1.1rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #111;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .dress-code-col p {
+      font-family: 'Times New Roman Condensed', 'Times New Roman', serif;
+      font-stretch: condensed;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #222;
+      font-weight: normal;
+    }
+
+    .dress-code-note {
+      font-family: 'Times New Roman Condensed', 'Times New Roman', serif;
+      font-stretch: condensed;
+      font-size: 1rem;
+      color: #222;
+      line-height: 1.35;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-top: 18px;
+    }
+
+    .dress-code-note u {
+      text-decoration: underline;
+      text-underline-offset: 2px;
     }
 
     .note-text {
@@ -381,12 +420,15 @@
       background: #546340;
     }
 
-    /* IFRAME DE TALLY */
+    /* IFRAME DE TALLY (CON ZOOM REDUCIDO) */
     iframe {
-      width: 100%;
+      width: 110%;
       min-height: 520px;
       border: none;
       margin-top: 10px;
+      transform: scale(0.9);
+      transform-origin: top center;
+      margin-left: -5%;
     }
   </style>
 </head>
@@ -468,24 +510,27 @@
       </table>
     </div>
 
-    <!-- DRESS CODE -->
+    <!-- DRESS CODE (NUEVA ESTRUCTURA Y FUENTES SEGÚN LA IMAGEN) -->
     <div class="card">
       <h3 class="newicon-title">Dress Code</h3>
       <p class="dress-code-title">Formal</p>
       
-      <div class="dress-code-grid">
-        <div class="dress-code-item">
+      <div class="dress-code-container">
+        <div class="dress-code-col left">
           <h4>MUJERES</h4>
           <p>VESTIDO LARGO</p>
         </div>
-        <div class="dress-code-item">
+        <div class="dress-code-col right">
           <h4>HOMBRES</h4>
           <p>TRAJE</p>
         </div>
       </div>
 
-      <p class="note-text">El color VERDE OLIVA está reservado para el cortejo.</p>
-      <p class="note-text" style="margin-top: 8px;">AVISO: El evento será totalmente en jardín. Les sugerimos tenerlo en cuenta para la elección de calzado.</p>
+      <p class="dress-code-note">EL COLOR <u>VERDE OLIVA</u> ESTÁ RESERVADO<br>PARÁ EL CORTEJO.</p>
+
+      <p class="dress-code-note" style="margin-top: 22px;">
+        <strong>AVISO:</strong> EL EVENTO SERÁ TOTALMENTE EN JARDÍN, LES SUGERIMOS TOMARLO EN CUENTA PARA LA ELECCIÓN DE CALZADO.
+      </p>
     </div>
 
     <!-- SUGERENCIA DE REGALOS -->
