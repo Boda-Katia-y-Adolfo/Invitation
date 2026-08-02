@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -385,7 +385,7 @@
       padding: 18px 20px;
       margin: 25px auto 10px;
       max-width: 420px;
-      background-color: rgba(255, 255, 255, 0.4);
+      background-color: transparent;
       text-align: center;
     }
 
@@ -413,7 +413,7 @@
     /* IFRAME DE TALLY (ALTURA DINÁMICA) */
     iframe {
       width: 100%;
-      height: 0; /* Empieza en 0 y el script de Tally ajusta automáticamente */
+      min-height: 300px;
       border: none;
       margin-top: 10px;
       overflow: hidden;
@@ -422,14 +422,12 @@
     /* INFORMACIÓN IMPORTANTE */
     .info-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 25px;
       text-align: center;
     }
 
     .info-box h4 {
       font-family: 'NewIcon', serif;
-      font-size: 3rem;
+      font-size: 1.5rem;
       letter-spacing: 1.5px;
       margin-bottom: 10px;
     }
@@ -497,7 +495,6 @@
         <span class="number">28</span>
         <span>NOVIEMBRE</span>
       </div>
-    
 
       <div id="greeting-box"></div>
 
@@ -609,7 +606,16 @@
       <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom: 15px;">Por favor llena los siguientes datos para reservar tus lugares:</p>
       
       <!-- IFRAME TALLY DYNAMIC HEIGHT -->
-      <iframe id="tally-iframe" data-tally-src="https://tally.so/embed/xX1Wzy?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" title="RSVP Katia y Adolfo" width="100%" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+      <iframe 
+        id="tally-iframe" 
+        src="https://tally.so/embed/xX1Wzy?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+        data-tally-src="https://tally.so/embed/xX1Wzy?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
+        title="RSVP Katia y Adolfo" 
+        width="100%" 
+        frameborder="0" 
+        marginheight="0" 
+        marginwidth="0">
+      </iframe>
     </div>
 
     <!-- INFORMACIÓN IMPORTANTE -->
@@ -630,47 +636,72 @@
   </div> <!-- Cierre de .page-wrapper -->
 
   <script>
-    const TALLY_ID = "xX1Wzy"; 
+    document.addEventListener("DOMContentLoaded", function() {
+      const TALLY_ID = "xX1Wzy"; 
 
-    // Obtener los parámetros de la URL
-    const urlParams = new URLSearchParams(window.location.search);
-    
-    const guestName = urlParams.get('n') || urlParams.get('nombre');
-    const partnerName = urlParams.get('p') || urlParams.get('pareja');
+      // Obtener los parámetros de la URL
+      const urlParams = new URLSearchParams(window.location.search);
+      
+      const guestName = urlParams.get('n') || urlParams.get('nombre');
+      const partnerParam = urlParams.get('p') || urlParams.get('pareja');
 
-    let greetingText = "";
+      let greetingText = "";
 
-    if (guestName && partnerName) {
-      greetingText = `¡Hola, ${guestName} y ${partnerName}!`;
-    } else if (guestName) {
-      greetingText = `¡Hola, ${guestName}!`;
-    } else if (partnerName) {
-      greetingText = `¡Hola, ${partnerName}!`;
-    }
+      // Evaluación de lógica según p=0 o p=1 / nombre
+      if (guestName) {
+        if (!partnerParam || partnerParam === '0') {
+          // Si p es 0 o no viene especificado, saluda únicamente a la persona principal
+          greetingText = `¡Hola, ${guestName}!`;
+        } else if (partnerParam === '1') {
+          // Si p es 1 pero no trae nombre explícito en la URL
+          greetingText = `¡Hola, ${guestName} y acompañante!`;
+        } else {
+          // Si p trae el nombre directo de la pareja (ej. p=María)
+          greetingText = `¡Hola, ${guestName} y ${partnerParam}!`;
+        }
+      } else if (partnerParam && partnerParam !== '0' && partnerParam !== '1') {
+        greetingText = `¡Hola, ${partnerParam}!`;
+      }
 
-    if (greetingText) {
-      const greetingBox = document.getElementById('greeting-box');
-      greetingBox.innerText = greetingText;
-      greetingBox.style.display = 'block';
-    }
+      // Mostrar el saludo en pantalla
+      if (greetingText) {
+        const greetingBox = document.getElementById('greeting-box');
+        if (greetingBox) {
+          greetingBox.innerText = greetingText;
+          greetingBox.style.display = 'block';
+        }
+      }
 
-    // Configurar iframe y recalcular incrustación de Tally
-    const tallyIframe = document.getElementById('tally-iframe');
-    const baseUrl = `https://tally.so/embed/${TALLY_ID}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`;
-    
-    const queryString = urlParams.toString();
-    const finalUrl = queryString ? `${baseUrl}&${queryString}` : baseUrl;
+      // Configurar iframe y pasar parámetros URL a Tally
+      const tallyIframe = document.getElementById('tally-iframe');
+      if (tallyIframe) {
+        const baseUrl = `https://tally.so/embed/${TALLY_ID}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`;
+        const queryString = urlParams.toString();
+        const finalUrl = queryString ? `${baseUrl}&${queryString}` : baseUrl;
 
-    tallyIframe.setAttribute('data-tally-src', finalUrl);
-    tallyIframe.src = finalUrl;
+        tallyIframe.setAttribute('data-tally-src', finalUrl);
+        tallyIframe.src = finalUrl;
+      }
 
-    // Recargar los embeds de Tally si la librería ya cargó
-    if (typeof Tally !== 'undefined') {
-      Tally.loadEmbeds();
-    }
+      // Cargar script de Tally y forzar re-renderizado de altura dinámica
+      function loadTallyScript() {
+        if (typeof Tally !== 'undefined') {
+          Tally.loadEmbeds();
+        } else {
+          const script = document.createElement('script');
+          script.src = "https://tally.so/widgets/embed.js";
+          script.async = true;
+          script.onload = () => {
+            if (typeof Tally !== 'undefined') {
+              Tally.loadEmbeds();
+            }
+          };
+          document.body.appendChild(script);
+        }
+      }
+
+      loadTallyScript();
+    });
   </script>
-
-  <!-- Script Oficial de Tally que ajusta dinámicamente la altura del iframe -->
-  <script async src="https://tally.so/widgets/embed.js" onload="typeof Tally !== 'undefined' && Tally.loadEmbeds();"></script>
 </body>
 </html>
