@@ -428,10 +428,12 @@
       transform-origin: top center;
     }
 
-    /* INFORMACIÓN IMPORTANTE */
+    /* INFORMACIÓN IMPORTANTE (UNA SOLA COLUMNA) */
     .info-grid {
-      display: grid;
+      display: flex;
+      flex-direction: column;
       text-align: center;
+      gap: 30px;
     }
 
     .info-box h4 {
@@ -469,10 +471,6 @@
     }
 
     @media (min-width: 500px) {
-      .info-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
       .spacerbig {
         height: 80px;
       }
@@ -639,7 +637,6 @@
           <h4><strong>NO NIÑOS</strong></h4>
           <p>Adoramos a los pequeños de la familia y amigos, sin embargo, este evento está destinado para adultos.</p>
         </div>
-        <div class="spacerchico"></div>
         <div class="info-box">
           <h4><strong>ESTACIONAMIENTO</strong></h4>
           <p>Contamos con estacionamiento en ambas ubicaciones, así como servicio de valet parking exclusivamente en la recepción.<br><br>Les sugerimos tomar sus precauciones, ya que el cupo en ambas ubicaciones es limitado.</p>
@@ -654,75 +651,11 @@
     document.addEventListener("DOMContentLoaded", function() {
       const TALLY_ID = "xX1Wzy"; 
 
-      // Obtener parámetros de la URL
-      const urlParams = new URLSearchParams(window.location.search);
-      
-      const guestName = urlParams.get('n') || urlParams.get('nombre');
-      const pParam = urlParams.get('p');
-      const partnerName = urlParams.get('acu') || urlParams.get('pareja');
-
-      let greetingText = "";
-
-      // Lógica de saludo: Si p es exactamente 1, incluye a acu. De lo contrario solo a n.
-      if (guestName) {
-        if (pParam === '1' && partnerName) {
-          greetingText = `¡Hola, ${guestName} y ${partnerName}!`;
-        } else {
-          greetingText = `¡Hola, ${guestName}!`;
-        }
-      }
-
-      // Desplegar el saludo en el header
-      if (greetingText) {
-        const greetingBox = document.getElementById('greeting-box');
-        if (greetingBox) {
-          greetingBox.innerText = greetingText;
-          greetingBox.style.display = 'block';
-        }
-      }
-
-      // Configurar URL del iframe para pasar los parámetros dinámicos a Tally
-      const tallyIframe = document.getElementById('tally-iframe');
-      if (tallyIframe) {
-        const baseUrl = `https://tally.so/embed/${TALLY_ID}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`;
-        const queryString = urlParams.toString();
-        const finalUrl = queryString ? `${baseUrl}&${queryString}` : baseUrl;
-
-        tallyIframe.setAttribute('data-tally-src', finalUrl);
-        tallyIframe.src = finalUrl;
-      }
-
-      // Cargar el script oficial de Tally
-      function loadTallyScript() {
-        if (typeof Tally !== 'undefined') {
-          Tally.loadEmbeds();
-        } else {
-          const script = document.createElement('script');
-          script.src = "https://tally.so/widgets/embed.js";
-          script.async = true;
-          script.onload = () => {
-            if (typeof Tally !== 'undefined') {
-              Tally.loadEmbeds();
-            }
-          };
-          document.body.appendChild(script);
-        }
-      }
-
-      loadTallyScript();
-    });
-  </script>
-</body>
-</html>
-    document.addEventListener("DOMContentLoaded", function() {
-      const TALLY_ID = "xX1Wzy"; 
-
       // Obtener los parámetros de la URL
       const urlParams = new URLSearchParams(window.location.search);
-      
       const guestName = urlParams.get('n') || urlParams.get('nombre');
       const partnerParam = urlParams.get('p') || urlParams.get('pareja');
-
+      
       let greetingText = "";
 
       // Evaluación de lógica según p=0 o p=1 / nombre
