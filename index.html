@@ -12,7 +12,7 @@
     /* DECLARACIÓN DE FUENTES LOCALES DESDE TU REPOSITORIO GITHUB */
     @font-face {
       font-family: 'NewIcon';
-      src: url('fonts/NewIcon.ttf') format('truetype');
+      src: url('fonts/NewIcon.tff') format('true type');
       font-weight: normal;
       font-style: normal;
       font-display: swap;
@@ -47,33 +47,34 @@
       color: var(--text-dark);
       text-align: center;
       line-height: 1.6;
-      padding-bottom: 60px;
+      padding-bottom: 80px;
     }
 
     .container {
       max-width: 500px;
       margin: 0 auto;
-      padding: 40px 20px;
+      padding: 50px 20px;
     }
 
     /* ENCABEZADO Y TÍTULO PRINCIPAL */
     .header {
       color: var(--text-light);
-      margin-bottom: 35px;
+      margin-bottom: 50px;
     }
 
+    /* TAMAÑO DE KATIA & ADOLFO AUMENTADO */
     .header h1 {
       font-family: 'NewIcon', serif;
-      font-size: 3.4rem;
+      font-size: 4.2rem;
       font-weight: 400;
       letter-spacing: 5px;
       line-height: 1.05;
       text-transform: uppercase;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
 
     .header .subtitle {
-      font-family: 'Sloop Script', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-style: italic;
       font-size: 1.3rem;
       letter-spacing: 1px;
@@ -135,23 +136,23 @@
       display: none;
     }
 
-    /* TÍTULOS DE SECCIÓN PRINCIPALES */
+    /* TÍTULOS DE SECCIÓN PRINCIPALES (MÁS ESPACIO ARRIBA Y ABAJO) */
     .section-title {
       font-family: 'NewIcon', serif;
       font-size: 2rem;
       color: var(--text-light);
       letter-spacing: 3px;
       text-transform: uppercase;
-      margin: 40px 0 25px;
+      margin: 60px 0 35px;
       font-weight: 400;
     }
 
-    /* TARJETAS CONTENEDORAS CENTRADAS */
+    /* TARJETAS CONTENEDORAS (MÁS ESPACIO DE SEPARACIÓN ABAJO) */
     .card {
       background-color: var(--card-bg);
       border-radius: 2px;
       padding: 35px 25px;
-      margin-bottom: 30px;
+      margin-bottom: 55px;
       margin-left: auto !important;
       margin-right: auto !important;
       box-shadow: 0 8px 25px rgba(0,0,0,0.12);
@@ -173,7 +174,7 @@
       background-image: url('https://github.com/Boda-Katia-y-Adolfo/Invitation/blob/main/logo.jpg?raw=true');
       background-repeat: no-repeat;
       background-position: center;
-      background-size: 50%;
+      background-size: contain;
       opacity: 0.04;
       z-index: -1;
       pointer-events: none;
@@ -259,6 +260,9 @@
     }
 
     @media (max-width: 600px) {
+      .header h1 {
+        font-size: 3.5rem; /* Ajuste adaptativo para pantallas de celular muy pequeñas */
+      }
       .btn-location {
         font-size: 0.9rem;
         padding: 10px 20px;
@@ -509,7 +513,7 @@
         </div>
         <div class="info-box">
           <h4>ESTACIONAMIENTO</h4>
-          <p>Contamos con estacionamiento en ambas ubicaciones, así como servicio de valet parking exclusivamente en la recepción.<br><br>Les sugerimos tomar sus precauciones, ya que el cupo en ambas ubicaciones is limitado.</p>
+          <p>Contamos con estacionamiento en ambas ubicaciones, así como servicio de valet parking exclusivamente en la recepción.<br><br>Les sugerimos tomar sus precauciones, ya que el cupo en ambas ubicaciones es limitado.</p>
         </div>
       </div>
     </div>
