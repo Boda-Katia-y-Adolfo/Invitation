@@ -410,22 +410,17 @@
       margin-top: 6px;
     }
 
-    /* CONTENEDOR E IFRAME DE TALLY (REDUCCIÓN DE ZOOM AL 90%) */
+    /* CONTENEDOR E IFRAME DE TALLY DINÁMICO */
     .tally-container {
       width: 100%;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
+      position: relative;
+      overflow: visible;
     }
 
     iframe#tally-iframe {
-      width: 100%;
-      min-height: 300px;
-      border: none;
+      width: 100% !important;
+      border: none !important;
       margin-top: 10px;
-      overflow: hidden;
-      transform: scale(0.90);
-      transform-origin: top center;
     }
 
     /* INFORMACIÓN IMPORTANTE (UNA SOLA COLUMNA) */
@@ -614,7 +609,6 @@
       <h3 class="newicon-title">Confirmar Asistencia</h3>
       <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom: 15px;">Por favor llena los siguientes datos para reservar tus lugares:</p>
       
-      <!-- CONTENEDOR PARA ESCALA DE ZOOM DEL TALLY -->
       <div class="tally-container">
         <iframe 
           id="tally-iframe" 
@@ -622,6 +616,7 @@
           data-tally-src="https://tally.so/embed/xX1Wzy?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
           title="RSVP Katia y Adolfo" 
           width="100%" 
+          height="300"
           frameborder="0" 
           marginheight="0" 
           marginwidth="0">
