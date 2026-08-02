@@ -216,7 +216,7 @@
 
     .card h3.newicon-title {
       font-family: 'NewIcon', serif;
-      font-size: 4rem;
+      font-size: 3rem;
       font-weight: bold;
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -299,7 +299,7 @@
     }
 
     .itinerary-list .time-col {
-      font-family: 'NewIcon', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-weight: 600;
       text-align: left;
       width: 35%;
@@ -378,13 +378,22 @@
     }
 
     /* IFRAME DE TALLY */
-    iframe {
-      width: 100%;
-      min-height: 550px;
-      border: none;
-      border-radius: 8px;
-      margin-top: 10px;
-    }
+iframe {
+  width: 125%;             /* Aumentamos el ancho para compensar la reducción de escala */
+  min-height: 600px;
+  border: none;
+  margin-top: 10px;
+  transform: scale(0.8);   /* Redúcelo a 0.8 (80%) o 0.75 (75%) según tu gusto */
+  transform-origin: top center;
+  margin-left: -12.5%;     /* Centra el iframe agrandado */
+}
+    @media (max-width: 600px) {
+  iframe {
+    transform: scale(0.75); /* Zoom al 75% en celulares */
+    width: 133%;
+    margin-left: -16.5%;
+    min-height: 650px;
+  }
 
     /* INFORMACIÓN IMPORTANTE */
     .info-grid {
@@ -436,8 +445,8 @@
   <div class="page-wrapper">
 
     <!-- ENCABEZADO / HERO -->
-    <div class="spacerbig"></div>
-    <div class="spacerbig"></div>
+    <div class="spacerbig">&nbsp;</div>
+    <div class="spacerbig">&nbsp;</div>
     <header class="hero-section">
       <h1>Katia &<br>Adolfo</h1>
       <div class="spacerbig"></div>
