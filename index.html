@@ -188,7 +188,11 @@
       margin-bottom: 35px;
       box-shadow: 0 12px 35px rgba(0,0,0,0.18);
       position: relative;
-      overflow: hidden;
+      overfl
+        
+      
+      
+      ow: hidden;
       z-index: 1;
       backdrop-filter: blur(5px);
     }
@@ -506,6 +510,24 @@
       .spacerchico {
         height: 20px;
       }
+
+      /* ESTILOS PARA LA IMAGEN CENTRAL DIVISORA */
+.center-img-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0; /* Espacio arriba y abajo de la imagen para separarla de las secciones */
+}
+
+.center-img-container img.floating-divider {
+  width: 40px;          /* Tamaño exacto de 40px de ancho */
+  height: auto;         /* Mantiene la proporción original de la imagen */
+  border: none;         /* Sin bordes o recuadros */
+  background: transparent; /* Sin fondo */
+  box-shadow: none;     /* Sin sombras */
+  object-fit: contain;
+}
     }
   </style>
 </head>
