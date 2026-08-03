@@ -678,18 +678,14 @@
       
       let greetingText = "";
 
-      // Evaluación de lógica según p=1 o p != 1
       if (guestName) {
-        if (partnerParam === '1') {
-          // Si p es 1, usamos la variable acu si viene en la URL
-          if (companionName) {
-            greetingText = `¡Hola, ${guestName} y ${companionName}!`;
-          } else {
-            greetingText = `¡Hola, ${guestName}!`;
-          }
+        if (partnerParam === '1' && companionName) {
+          greetingText = `¡Hola, ${guestName} y ${companionName}!`;
+        } else {
+          greetingText = `¡Hola, ${guestName}!`;
+        }
 
-      // Mostrar el saludo en pantalla
-      if (greetingText) {
+        // Mostrar el saludo en pantalla
         const greetingBox = document.getElementById('greeting-box');
         if (greetingBox) {
           greetingBox.innerText = greetingText;
