@@ -49,6 +49,7 @@
       --text-muted: #555555;
       --text-light: #ffffff;
       --border-line: #e0e0e0;
+      --border-dark: #888888; /* Tono más oscuro y visible para la línea separadora */
     }
 
     * { 
@@ -318,7 +319,7 @@
     }
 
     .itinerary-list .time-col {
-      font-family: 'Telegraf', sans-serif;
+      font-family: 'TimesNewRomanCustom', sans-serif;
       font-weight: 600;
       text-align: left;
       width: 35%;
@@ -356,15 +357,17 @@
     }
 
     .dress-code-col.left {
-      border-right: 1px solid var(--border-line);
+      border-right: 1px solid var(--border-dark); /* Línea visible y más oscura */
     }
 
     .dress-code-col h4 {
-      font-size: 1rem;
+      font-family: 'TimesNewRomanCustom', 'Times New Roman', serif; /* Fuente actualizada */
+      font-size: 1.15rem; /* Ajustado ligeramente para lucir bien con Times New Roman */
       letter-spacing: 1.5px;
       text-transform: uppercase;
       color: #111;
       margin-bottom: 6px;
+      font-weight: 600;
     }
 
     .dress-code-col p {
