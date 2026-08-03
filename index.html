@@ -169,24 +169,24 @@
       display: none;
     }
 
-    /* TÍTULOS DE SECCIÓN (Espacios reducidos) */
+    /* TÍTULOS DE SECCIÓN (Espaciado original recuperado) */
     .section-title {
       font-family: 'NewIcon', serif;
       font-size: 2.5rem;
       color: var(--text-light);
       letter-spacing: 4px;
       text-transform: uppercase;
-      margin: 45px 0 20px;
+      margin: 60px 0 30px;
       font-weight: 400;
     }
 
-    /* ESTILOS PARA LA IMAGEN CENTRAL DIVISORA (Aumentada a 160px) */
+    /* ESTILOS PARA LA IMAGEN CENTRAL DIVISORA (Con márgenes cortos) */
     .center-img-container {
       width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 20px 0;
+      margin: 10px 0;
     }
 
     .center-img-container img.floating-divider {
@@ -199,12 +199,12 @@
       object-fit: contain;
     }
 
-    /* TARJETAS ESTILO LÁMINA CANVA (Espacios internos y externos optimizados) */
+    /* TARJETAS ESTILO LÁMINA CANVA */
     .card {
       background-color: var(--card-bg);
       border-radius: 12px;
       padding: 35px 25px;
-      margin-bottom: 25px;
+      margin-bottom: 35px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.15);
       position: relative;
       overflow: hidden;
@@ -493,38 +493,24 @@
     }
 
     .spacerbig {
-      height: 25px;
+      height: 40px;
       display: block;
       width: 100%;
       clear: both;
     }
 
     .spacermed {
-      height: 20px;
+      height: 25px;
       display: block;
       width: 100%;
       clear: both;
     }
 
     .spacerchico {
-      height: 10px;
+      height: 15px;
       display: block;
       width: 100%;
       clear: both;
-    }
-
-    @media (min-width: 500px) {
-      .spacerbig {
-        height: 40px;
-      }
-
-      .spacermed {
-        height: 25px;
-      }
-
-      .spacerchico {
-        height: 15px;
-      }
     }
   </style>
 </head>
@@ -559,7 +545,7 @@
 
     <div class="spacermed"></div>
 
-    <!-- IMAGEN CENTRAL DIVISORA (Aumentada) -->
+    <!-- IMAGEN CENTRAL DIVISORA (Con márgenes reducidos solo aquí) -->
     <div class="center-img-container">
       <img src="https://github.com/Boda-Katia-y-Adolfo/Invitation/blob/main/IMG_6950.jpeg?raw=true" alt="Divisor" class="floating-divider">
     </div>
