@@ -687,17 +687,6 @@
           } else {
             greetingText = `¡Hola, ${guestName}!`;
           }
-        } else {
-          // Si p NO es 1 (ej. p=0, p=María o no existe p)
-          if (partnerParam && partnerParam !== '0') {
-            greetingText = `¡Hola, ${guestName} y ${partnerParam}!`;
-          } else {
-            greetingText = `¡Hola, ${guestName}!`;
-          }
-        }
-      } else if (companionName) {
-        greetingText = `¡Hola, ${companionName}!`;
-      }
 
       // Mostrar el saludo en pantalla
       if (greetingText) {
