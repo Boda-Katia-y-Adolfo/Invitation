@@ -26,6 +26,14 @@
       font-display: swap;
     }
 
+    @font-face {
+      font-family: 'Telegraf';
+      src: url('fonts/Telegraf.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
     :root {
       --bg-olive: #6c8058;
       --card-bg: #e9e9e9;
@@ -105,17 +113,19 @@
       align-items: center;
       justify-content: center;
       gap: 15px;
-      font-family: 'Times Nwe Roman MT Condensed', serif;
-      font-size: 0.85rem;
+      font-family: 'Times New Roman MT Condensed', serif;
+      font-size: 1rem;
       letter-spacing: 2px;
       margin-bottom: 30px;
       border-top: 1px solid rgba(255,255,255,0.5);
       border-bottom: 1px solid rgba(255,255,255,0.5);
       padding: 12px 25px;
       font-weight: 700;
+      text-transform: uppercase;
     }
 
     .date-badge .number {
+      font-family: 'Montserrat', sans-serif;
       font-size: 2.5rem;
       font-weight: 600;
       line-height: 1;
@@ -300,11 +310,12 @@
     }
 
     .itinerary-list .time-col {
-      font-family: 'Bodoni Moda', serif;
+      font-family: 'Telegraf', sans-serif;
       font-weight: 600;
       text-align: left;
       width: 35%;
       color: #333;
+      font-size: 1.1rem;
     }
 
     .itinerary-list .event-col {
@@ -414,13 +425,14 @@
     .tally-container {
       width: 100%;
       position: relative;
-      overflow: visible;
+      height: auto !important;
     }
 
     iframe#tally-iframe {
       width: 100% !important;
       border: none !important;
       margin-top: 10px;
+      background: transparent;
     }
 
     /* INFORMACIÓN IMPORTANTE (UNA SOLA COLUMNA) */
@@ -616,7 +628,7 @@
           data-tally-src="https://tally.so/embed/xX1Wzy?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
           title="RSVP Katia y Adolfo" 
           width="100%" 
-          height="300"
+          height="150"
           frameborder="0" 
           marginheight="0" 
           marginwidth="0">
@@ -695,9 +707,35 @@
         tallyIframe.src = finalUrl;
       }
 
-      // Cargar script de Tally y forzar re-renderizado de altura dinámica
+      // Cargar script de Tally y forzar re-renderizado de altura dinámica en cada etapa
       function loadTallyScript() {
         if (typeof Tally !== 'undefined') {
+          Tally.loadEmbeds();
+        } else {
+          const script = document.createElement('script');
+          script.src = "https://tally.so/widgets/embed.js";
+          script.async = true;
+          script.onload = () => {
+            if (typeof Tally !== 'undefined') {
+              Tally.loadEmbeds();
+            }
+          };
+          document.body.appendChild(script);
+        }
+      }
+
+      loadTallyScript();
+      
+      // Refresco adicional para asegurar que Tally recalcule la altura al interactuar con las preguntas
+      setTimeout(() => {
+        if (typeof Tally !== 'undefined') {
+          Tally.loadEmbeds();
+        }
+      }, 700);
+    });
+  </script>
+</body>
+</html>
           Tally.loadEmbeds();
         } else {
           const script = document.createElement('script');
